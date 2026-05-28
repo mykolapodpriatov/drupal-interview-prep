@@ -1,0 +1,59 @@
+{
+    "name": "drupal-interview-prep/exercises",
+    "description": "Runnable PHP katas for Drupal interview preparation.",
+    "type": "project",
+    "license": "MIT",
+    "require": {
+        "php": "^8.3",
+        "symfony/http-foundation": "^6.4 || ^7.0",
+        "symfony/http-kernel": "^6.4 || ^7.0",
+        "symfony/event-dispatcher": "^6.4 || ^7.0",
+        "psr/log": "^3.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.5 || ^11.0",
+        "squizlabs/php_codesniffer": "^3.10"
+    },
+    "autoload": {
+        "psr-4": {
+            "Exercises\\Kata01\\Starter\\":  "exercises/01-render-array-builder/starter/src/",
+            "Exercises\\Kata01\\Solution\\": "exercises/01-render-array-builder/solution/src/",
+            "Exercises\\Kata02\\Starter\\":  "exercises/02-event-subscriber/starter/src/",
+            "Exercises\\Kata02\\Solution\\": "exercises/02-event-subscriber/solution/src/",
+            "Exercises\\Kata03\\Starter\\":  "exercises/03-config-form-validation/starter/src/",
+            "Exercises\\Kata03\\Solution\\": "exercises/03-config-form-validation/solution/src/",
+            "Exercises\\Kata04\\Starter\\":  "exercises/04-entity-query-with-access/starter/src/",
+            "Exercises\\Kata04\\Solution\\": "exercises/04-entity-query-with-access/solution/src/",
+            "Exercises\\Kata05\\Starter\\":  "exercises/05-migrate-process-plugin/starter/src/",
+            "Exercises\\Kata05\\Solution\\": "exercises/05-migrate-process-plugin/solution/src/",
+            "Exercises\\Kata06\\Starter\\":  "exercises/06-block-plugin/starter/src/",
+            "Exercises\\Kata06\\Solution\\": "exercises/06-block-plugin/solution/src/",
+            "Exercises\\Kata07\\Starter\\":  "exercises/07-drush-command/starter/src/",
+            "Exercises\\Kata07\\Solution\\": "exercises/07-drush-command/solution/src/",
+            "Exercises\\Kata08\\Starter\\":  "exercises/08-json-api-extension/starter/src/",
+            "Exercises\\Kata08\\Solution\\": "exercises/08-json-api-extension/solution/src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Exercises\\Kata01\\Tests\\": "exercises/01-render-array-builder/tests/",
+            "Exercises\\Kata02\\Tests\\": "exercises/02-event-subscriber/tests/",
+            "Exercises\\Kata03\\Tests\\": "exercises/03-config-form-validation/tests/",
+            "Exercises\\Kata04\\Tests\\": "exercises/04-entity-query-with-access/tests/",
+            "Exercises\\Kata05\\Tests\\": "exercises/05-migrate-process-plugin/tests/",
+            "Exercises\\Kata06\\Tests\\": "exercises/06-block-plugin/tests/",
+            "Exercises\\Kata07\\Tests\\": "exercises/07-drush-command/tests/",
+            "Exercises\\Kata08\\Tests\\": "exercises/08-json-api-extension/tests/"
+        }
+    },
+    "scripts": {
+        "test:starter": "KATA_MODE=starter phpunit",
+        "test:solution": "KATA_MODE=solution phpunit",
+        "test": "@test:solution"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {}
+    },
+    "minimum-stability": "stable"
+}

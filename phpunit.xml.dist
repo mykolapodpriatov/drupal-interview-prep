@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/10.5/phpunit.xsd"
+         bootstrap="vendor/autoload.php"
+         colors="true"
+         cacheDirectory=".phpunit.result.cache"
+         executionOrder="random"
+         failOnWarning="true"
+         failOnRisky="true">
+    <php>
+        <!-- Default to "starter" mode so a fresh checkout shows failing tests. -->
+        <!-- Override via env: KATA_MODE=solution phpunit -->
+        <env name="KATA_MODE" value="starter"/>
+    </php>
+    <testsuites>
+        <testsuite name="Kata01">
+            <directory>exercises/01-render-array-builder/tests</directory>
+        </testsuite>
+        <testsuite name="Kata02">
+            <directory>exercises/02-event-subscriber/tests</directory>
+        </testsuite>
+        <testsuite name="Kata03">
+            <directory>exercises/03-config-form-validation/tests</directory>
+        </testsuite>
+        <testsuite name="Kata04">
+            <directory>exercises/04-entity-query-with-access/tests</directory>
+        </testsuite>
+        <testsuite name="Kata05">
+            <directory>exercises/05-migrate-process-plugin/tests</directory>
+        </testsuite>
+        <testsuite name="Kata06">
+            <directory>exercises/06-block-plugin/tests</directory>
+        </testsuite>
+        <testsuite name="Kata07">
+            <directory>exercises/07-drush-command/tests</directory>
+        </testsuite>
+        <testsuite name="Kata08">
+            <directory>exercises/08-json-api-extension/tests</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>
