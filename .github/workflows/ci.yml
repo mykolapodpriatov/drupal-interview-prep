@@ -1,0 +1,71 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  phpunit:
+    name: PHPUnit (solution mode)
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        php-version: ['8.3', '8.4']
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-version }}
+          coverage: none
+          tools: composer:v2
+
+      - name: Get composer cache directory
+        id: composer-cache
+        run: echo "dir=$(composer config cache-files-dir)" >> "$GITHUB_OUTPUT"
+
+      - name: Cache composer dependencies
+        uses: actions/cache@v4
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: composer-${{ matrix.php-version }}-${{ hashFiles('composer.json') }}
+          restore-keys: composer-${{ matrix.php-version }}-
+
+      - name: Install dependencies
+        run: composer install --no-interaction --no-progress --prefer-dist
+
+      - name: PHPUnit (reference solutions must pass)
+        run: composer test:solution
+
+      - name: PHPUnit (starter code must fail)
+        run: |
+          set +e
+          composer test:starter
+          status=$?
+          if [ "$status" -eq 0 ]; then
+            echo "Starter code unexpectedly passes all tests."
+            exit 1
+          fi
+          echo "Starter failed as expected."
+          exit 0
+
+  markdownlint:
+    name: Markdownlint (questions)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install markdownlint
+        run: npm install -g markdownlint-cli@0.41.0
+      - name: Lint questions
+        run: markdownlint 'questions/*.md' --config .markdownlint.json || true
+        # The lint rules in this repo are advisory, not blocking. The job
+        # surfaces issues without failing the build — questions are prose
+        # and adding strict line-length rules would be noise.
