@@ -1,5 +1,7 @@
 # drupal-interview-prep
 
+[![CI](https://github.com/mykolapodpriatov/drupal-interview-prep/actions/workflows/ci.yml/badge.svg)](https://github.com/mykolapodpriatov/drupal-interview-prep/actions/workflows/ci.yml)
+
 A curated bank of Drupal interview questions and runnable PHP code katas,
 organized by seniority. Targets Drupal 10.3+ / 11 and PHP 8.3+.
 
