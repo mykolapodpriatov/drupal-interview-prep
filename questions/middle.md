@@ -383,17 +383,21 @@ when you only care about one form.
 **Tags:** api, http
 **Time:** 3 min
 
-It is Drupal's content negotiation hint. Routes can declare which
-response formats they support via `requirements: _format: 'json|xml'`.
-When the client passes `?_format=json` (or an `Accept: application/json`
-header), the routing system picks the json-capable controller / view
-display.
+It is Drupal's content negotiation hint, used by **core REST**. Routes
+can declare which response formats they support via
+`requirements: _format: 'json|xml'`. When the client passes
+`?_format=json` (or an `Accept: application/json` header), the routing
+system picks the json-capable controller / view display.
 
-The standard JSON:API endpoint uses this for the `?_format=api_json`
-variants in older code.
+This is a core REST mechanism, not a JSON:API one. **JSON:API does not
+use `?_format`** — it serves its own dedicated routes under `/jsonapi`
+and negotiates on the `application/vnd.api+json` media type. Don't
+conflate the two: `?_format=json` belongs to core REST, while JSON:API
+has its own routing and content type.
 
 **References:**
 - <https://www.drupal.org/docs/drupal-apis/routing-system>
+- <https://www.drupal.org/docs/drupal-apis/jsonapi-api>
 
 ---
 
