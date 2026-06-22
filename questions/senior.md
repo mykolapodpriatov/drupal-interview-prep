@@ -52,8 +52,10 @@ Annotations are doctrine-style docblock comments parsed by Drupal's
 annotation reader at discovery time. Attributes are native PHP 8 syntax
 on the class declaration, parsed by `Reflection*` APIs.
 
-Drupal 11 deprecated annotation-based plugin discovery in favor of
-attributes (`#[Block(id: '...', admin_label: new TranslatableMarkup('...'))]`).
+Drupal 11 makes PHP attributes the recommended approach for plugin
+discovery (`#[Block(id: '...', admin_label: new TranslatableMarkup('...'))]`),
+and core plugins were converted to attributes. Annotation-based discovery
+still works for backward compatibility, but new code should use attributes.
 
 Reasons:
 
@@ -279,8 +281,11 @@ Three pluggable pieces, all configurable in a migration YAML:
    `static_map`, `migration_lookup`, `concat`, `explode`, `callback`,
    `entity_generate`. You write custom ones when none fits.
 3. **Destination plugin** — `destination:` block. Receives processed
-   rows and creates entities or config. Most common:
-   `entity:NODE_TYPE`, `entity:user`, `config`.
+   rows and creates entities or config. The id is the entity type id,
+   not the bundle: `entity:node`, `entity:user`, `entity:taxonomy_term`,
+   `config`. Note: the bundle is set separately — either with a
+   `default_bundle:` key on the destination, or by mapping the bundle
+   field (e.g. `type` for nodes) in the `process:` block.
 
 Stateful bits:
 
@@ -370,7 +375,8 @@ Pitfalls:
 
 - The callable must be a method on a service or a static. Closures don't
   work because they aren't serializable across the placeholder boundary.
-- Arguments must be scalar (or arrays of scalars) — no entity objects.
+- Arguments must be scalars only (string, int, float, bool, NULL) — no
+  arrays, no entity objects.
 
 **References:**
 - <https://www.drupal.org/docs/drupal-apis/render-api/auto-placeholdering-and-lazy-builders>

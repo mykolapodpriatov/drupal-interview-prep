@@ -327,8 +327,9 @@ one-off audit.
 **Tags:** upgrades, migration
 **Time:** 12 min
 
-Reality check: Drupal 7 entered community-supported end-of-life in
-January 2025. Sites still on 7 in 2026 are technical-debt sites.
+Reality check: Drupal 7 reached its official end-of-life on
+5 January 2026 (the final extension by the Drupal Association). Sites
+still on 7 are now unsupported technical-debt sites.
 
 Recommended path:
 
