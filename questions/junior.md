@@ -320,10 +320,13 @@ Reference, not raw file fields.
 **Tags:** caching, tooling
 **Time:** 3 min
 
-`drush cr` (cache rebuild) clears every Drupal cache bin and rebuilds
-auxiliary caches: container, routes, plugin definitions, theme registry,
-twig cache, render cache, dynamic page cache, page cache. After a
-deploy, it is the safest "make the new code visible" command.
+`drush cr` (cache rebuild) flushes every Drupal cache bin, then rebuilds
+the auxiliary caches that the site needs to boot: the service container,
+the router, plugin/discovery definitions, and the theme registry. The
+content-style caches — render cache, dynamic page cache, page cache,
+and the compiled Twig templates — are simply **emptied (invalidated)**,
+not rebuilt; they refill lazily on the next request. After a deploy, it
+is the safest "make the new code visible" command.
 
 It is not the same as `drush cc all` (which existed in Drupal 7 and is
 gone in 10+).
