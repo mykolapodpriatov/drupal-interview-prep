@@ -49,7 +49,8 @@
     "scripts": {
         "test:starter": "KATA_MODE=starter phpunit",
         "test:solution": "KATA_MODE=solution phpunit",
-        "test": "@test:solution"
+        "test": "@test:solution",
+        "validate:questions": "@php scripts/validate-questions.php"
     },
     "config": {
         "sort-packages": true,
