@@ -43,5 +43,8 @@
         <testsuite name="Kata10">
             <directory>exercises/10-queue-worker/tests</directory>
         </testsuite>
+        <testsuite name="Kata11">
+            <directory>exercises/11-access-checker/tests</directory>
+        </testsuite>
     </testsuites>
 </phpunit>
