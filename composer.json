@@ -33,7 +33,9 @@
             "Exercises\\Kata08\\Starter\\":  "exercises/08-json-api-extension/starter/src/",
             "Exercises\\Kata08\\Solution\\": "exercises/08-json-api-extension/solution/src/",
             "Exercises\\Kata09\\Starter\\":  "exercises/09-cache-metadata/starter/src/",
-            "Exercises\\Kata09\\Solution\\": "exercises/09-cache-metadata/solution/src/"
+            "Exercises\\Kata09\\Solution\\": "exercises/09-cache-metadata/solution/src/",
+            "Exercises\\Kata10\\Starter\\":  "exercises/10-queue-worker/starter/src/",
+            "Exercises\\Kata10\\Solution\\": "exercises/10-queue-worker/solution/src/"
         }
     },
     "autoload-dev": {
@@ -46,7 +48,8 @@
             "Exercises\\Kata06\\Tests\\": "exercises/06-block-plugin/tests/",
             "Exercises\\Kata07\\Tests\\": "exercises/07-drush-command/tests/",
             "Exercises\\Kata08\\Tests\\": "exercises/08-json-api-extension/tests/",
-            "Exercises\\Kata09\\Tests\\": "exercises/09-cache-metadata/tests/"
+            "Exercises\\Kata09\\Tests\\": "exercises/09-cache-metadata/tests/",
+            "Exercises\\Kata10\\Tests\\": "exercises/10-queue-worker/tests/"
         }
     },
     "scripts": {
