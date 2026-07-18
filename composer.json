@@ -33,7 +33,11 @@
             "Exercises\\Kata08\\Starter\\":  "exercises/08-json-api-extension/starter/src/",
             "Exercises\\Kata08\\Solution\\": "exercises/08-json-api-extension/solution/src/",
             "Exercises\\Kata09\\Starter\\":  "exercises/09-cache-metadata/starter/src/",
-            "Exercises\\Kata09\\Solution\\": "exercises/09-cache-metadata/solution/src/"
+            "Exercises\\Kata09\\Solution\\": "exercises/09-cache-metadata/solution/src/",
+            "Exercises\\Kata10\\Starter\\":  "exercises/10-queue-worker/starter/src/",
+            "Exercises\\Kata10\\Solution\\": "exercises/10-queue-worker/solution/src/",
+            "Exercises\\Kata11\\Starter\\":  "exercises/11-access-checker/starter/src/",
+            "Exercises\\Kata11\\Solution\\": "exercises/11-access-checker/solution/src/"
         }
     },
     "autoload-dev": {
@@ -46,14 +50,18 @@
             "Exercises\\Kata06\\Tests\\": "exercises/06-block-plugin/tests/",
             "Exercises\\Kata07\\Tests\\": "exercises/07-drush-command/tests/",
             "Exercises\\Kata08\\Tests\\": "exercises/08-json-api-extension/tests/",
-            "Exercises\\Kata09\\Tests\\": "exercises/09-cache-metadata/tests/"
+            "Exercises\\Kata09\\Tests\\": "exercises/09-cache-metadata/tests/",
+            "Exercises\\Kata10\\Tests\\": "exercises/10-queue-worker/tests/",
+            "Exercises\\Kata11\\Tests\\": "exercises/11-access-checker/tests/"
         }
     },
     "scripts": {
         "test:starter": "KATA_MODE=starter phpunit",
         "test:solution": "KATA_MODE=solution phpunit",
         "test": "@test:solution",
-        "validate:questions": "@php scripts/validate-questions.php"
+        "validate:questions": "@php scripts/validate-questions.php",
+        "lint": "phpcs",
+        "lint:fix": "phpcbf"
     },
     "config": {
         "sort-packages": true,
