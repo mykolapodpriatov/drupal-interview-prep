@@ -50,6 +50,7 @@ exercises/
   06-block-plugin/
   07-drush-command/
   08-json-api-extension/
+  09-cache-metadata/
 
 docs/
   interviewer-guide.md

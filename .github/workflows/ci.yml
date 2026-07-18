@@ -53,6 +53,23 @@ jobs:
           echo "Starter failed as expected."
           exit 0
 
+  questions:
+    name: Question bank structure
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          coverage: none
+          tools: composer:v2
+
+      - name: Validate question-bank structure
+        # Blocking: a malformed question or reference fails the build.
+        run: php scripts/validate-questions.php
+
   markdownlint:
     name: Markdownlint (questions)
     runs-on: ubuntu-latest

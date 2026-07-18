@@ -31,7 +31,9 @@
             "Exercises\\Kata07\\Starter\\":  "exercises/07-drush-command/starter/src/",
             "Exercises\\Kata07\\Solution\\": "exercises/07-drush-command/solution/src/",
             "Exercises\\Kata08\\Starter\\":  "exercises/08-json-api-extension/starter/src/",
-            "Exercises\\Kata08\\Solution\\": "exercises/08-json-api-extension/solution/src/"
+            "Exercises\\Kata08\\Solution\\": "exercises/08-json-api-extension/solution/src/",
+            "Exercises\\Kata09\\Starter\\":  "exercises/09-cache-metadata/starter/src/",
+            "Exercises\\Kata09\\Solution\\": "exercises/09-cache-metadata/solution/src/"
         }
     },
     "autoload-dev": {
@@ -43,13 +45,15 @@
             "Exercises\\Kata05\\Tests\\": "exercises/05-migrate-process-plugin/tests/",
             "Exercises\\Kata06\\Tests\\": "exercises/06-block-plugin/tests/",
             "Exercises\\Kata07\\Tests\\": "exercises/07-drush-command/tests/",
-            "Exercises\\Kata08\\Tests\\": "exercises/08-json-api-extension/tests/"
+            "Exercises\\Kata08\\Tests\\": "exercises/08-json-api-extension/tests/",
+            "Exercises\\Kata09\\Tests\\": "exercises/09-cache-metadata/tests/"
         }
     },
     "scripts": {
         "test:starter": "KATA_MODE=starter phpunit",
         "test:solution": "KATA_MODE=solution phpunit",
-        "test": "@test:solution"
+        "test": "@test:solution",
+        "validate:questions": "@php scripts/validate-questions.php"
     },
     "config": {
         "sort-packages": true,

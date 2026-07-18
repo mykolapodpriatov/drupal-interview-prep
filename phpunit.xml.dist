@@ -37,5 +37,8 @@
         <testsuite name="Kata08">
             <directory>exercises/08-json-api-extension/tests</directory>
         </testsuite>
+        <testsuite name="Kata09">
+            <directory>exercises/09-cache-metadata/tests</directory>
+        </testsuite>
     </testsuites>
 </phpunit>
