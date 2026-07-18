@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleset name="drupal-interview-prep">
+    <description>PSR-12 coding standard for kata source and helper scripts.</description>
+
+    <!--
+        Paths scanned when phpcs / phpcbf run with no explicit target.
+        Only the shipped source is linted: each kata's starter/src and
+        solution/src, plus the helper scripts. Test directories are excluded —
+        they carry deliberate mode-switching and stub fixtures.
+    -->
+    <file>exercises</file>
+    <file>scripts</file>
+
+    <exclude-pattern>*/tests/*</exclude-pattern>
+    <exclude-pattern>*/vendor/*</exclude-pattern>
+
+    <arg name="extensions" value="php"/>
+    <arg name="colors"/>
+    <arg value="p"/>
+
+    <!--
+        Warnings (e.g. the soft 120-character line-length limit) are advisory
+        and must not fail the build. Errors still block. This keeps the check
+        lightweight, matching the repo's advisory-lint philosophy.
+    -->
+    <config name="ignore_warnings_on_exit" value="1"/>
+
+    <rule ref="PSR12"/>
+
+    <!--
+        Standalone CLI entry scripts legitimately declare a helper class and
+        run top-level logic; they are not autoloaded library code, so the
+        "must be namespaced" rule does not apply to them.
+    -->
+    <rule ref="PSR1.Classes.ClassDeclaration.MissingNamespace">
+        <exclude-pattern>scripts/*</exclude-pattern>
+    </rule>
+</ruleset>

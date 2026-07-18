@@ -59,7 +59,9 @@
         "test:starter": "KATA_MODE=starter phpunit",
         "test:solution": "KATA_MODE=solution phpunit",
         "test": "@test:solution",
-        "validate:questions": "@php scripts/validate-questions.php"
+        "validate:questions": "@php scripts/validate-questions.php",
+        "lint": "phpcs",
+        "lint:fix": "phpcbf"
     },
     "config": {
         "sort-packages": true,
