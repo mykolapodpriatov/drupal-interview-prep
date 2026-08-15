@@ -11,6 +11,9 @@ incrementally.
 ### Added
 - Junior, middle, senior, and lead interview question banks (Drupal 10.3+/11, PHP 8.3+).
 - Eight runnable PHPUnit code katas with starter / solution split.
+- Kata 12 (`exercises/12-custom-constraint/`): `EmbargoWindow` constraint +
+  validator pair exercising Drupal's entity validation API (Symfony
+  `Constraint` / `ConstraintValidator`).
 - CI workflow that verifies reference solutions and lints question markdown.
 - Interviewer and candidate guides under `docs/`.
 

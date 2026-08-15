@@ -37,7 +37,9 @@
             "Exercises\\Kata10\\Starter\\":  "exercises/10-queue-worker/starter/src/",
             "Exercises\\Kata10\\Solution\\": "exercises/10-queue-worker/solution/src/",
             "Exercises\\Kata11\\Starter\\":  "exercises/11-access-checker/starter/src/",
-            "Exercises\\Kata11\\Solution\\": "exercises/11-access-checker/solution/src/"
+            "Exercises\\Kata11\\Solution\\": "exercises/11-access-checker/solution/src/",
+            "Exercises\\Kata12\\Starter\\":  "exercises/12-custom-constraint/starter/src/",
+            "Exercises\\Kata12\\Solution\\": "exercises/12-custom-constraint/solution/src/"
         }
     },
     "autoload-dev": {
@@ -52,7 +54,8 @@
             "Exercises\\Kata08\\Tests\\": "exercises/08-json-api-extension/tests/",
             "Exercises\\Kata09\\Tests\\": "exercises/09-cache-metadata/tests/",
             "Exercises\\Kata10\\Tests\\": "exercises/10-queue-worker/tests/",
-            "Exercises\\Kata11\\Tests\\": "exercises/11-access-checker/tests/"
+            "Exercises\\Kata11\\Tests\\": "exercises/11-access-checker/tests/",
+            "Exercises\\Kata12\\Tests\\": "exercises/12-custom-constraint/tests/"
         }
     },
     "scripts": {
