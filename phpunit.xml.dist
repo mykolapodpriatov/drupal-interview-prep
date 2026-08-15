@@ -46,5 +46,8 @@
         <testsuite name="Kata11">
             <directory>exercises/11-access-checker/tests</directory>
         </testsuite>
+        <testsuite name="Kata12">
+            <directory>exercises/12-custom-constraint/tests</directory>
+        </testsuite>
     </testsuites>
 </phpunit>

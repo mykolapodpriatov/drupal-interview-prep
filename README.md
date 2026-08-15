@@ -51,6 +51,9 @@ exercises/
   07-drush-command/
   08-json-api-extension/
   09-cache-metadata/
+  10-queue-worker/
+  11-access-checker/
+  12-custom-constraint/
 
 docs/
   interviewer-guide.md
