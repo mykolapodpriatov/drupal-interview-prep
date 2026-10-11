@@ -698,22 +698,23 @@ hooks for non-trivial logic.
 **Tags:** entity-api, access, security
 **Time:** 6 min
 
-It adds query tags (`entity_query_access`,
-`{$entity_type}_access`) to the underlying SQL query. The entity type's
-access handler — and any module subscribing to
-`hook_query_TAG_alter` — appends conditions restricting rows the
-current user can `view`.
+`accessCheck(TRUE)` adds one tag, `{entity_type}_access`, to the SQL
+query. The entity type's access handler, and any module implementing
+`hook_query_TAG_alter` for that tag, appends conditions so the query
+returns only rows the current user can view. For nodes that tag is
+`node_access`, which is what consults the grants table.
 
-For nodes specifically, it integrates with the `node_access` table
-(grants system).
+Every entity query also carries `entity_query` and
+`entity_query_{entity_type}`, whether or not access checking is on.
+There is no `entity_query_access` tag.
 
-Since Drupal 9.2, you must explicitly call `accessCheck(TRUE)` or
-`accessCheck(FALSE)` — there is no default. Passing neither throws
-`QueryException`. The "FALSE" path is the "admin / cron / migrate"
-escape hatch and must be used carefully.
+Drupal 9.2 deprecated running an entity query without calling
+`accessCheck()`. Current core throws `QueryException` when the flag
+was never set. `accessCheck(FALSE)` is the admin, cron, and migrate
+escape hatch and has to be a deliberate choice.
 
-A senior should know that the access check happens at query time
-(filtered SQL), not after-load filtering. Big difference for pagination.
+The filter is in the SQL, not a second pass after the entities load,
+so pagination counts only the rows the user can see.
 
 **References:**
 - <https://www.drupal.org/node/3201242>
