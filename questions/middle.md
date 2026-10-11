@@ -474,9 +474,10 @@ that requires either a query alter or a custom access handler.
 
 `hook_query_TAG_alter` is invoked by `db_select` / entity query when the
 query has been built with `->addTag('TAG')`. Common tags:
-`node_access` (filter to only viewable nodes), `entity_query_access`
-(generic entity query access), or a custom tag your own service
-declares.
+`node_access` (the node access handler, so a node query only returns
+viewable nodes), `entity_query` and `entity_query_node` (added to every
+node entity query), or a custom tag your own service declares. There is
+no `entity_query_access` tag.
 
 You alter the query to add conditions — typically used to enforce
 row-level visibility based on the current user's roles or some external

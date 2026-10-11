@@ -63,6 +63,22 @@ function validate_question_file(string $path, string $displayPath): array
         return [new Violation($displayPath, 0, 'unable to parse file')];
     }
 
+    // Core adds {entity_type}_access, plus entity_query and
+    // entity_query_{entity_type}. The only allowed mention of the old
+    // wrong name is a sentence that says that tag does not exist.
+    foreach ($lines as $index => $rawLine) {
+        if (!str_contains($rawLine, 'entity_query_access')) {
+            continue;
+        }
+        if (!str_contains($rawLine, 'no `entity_query_access` tag')) {
+            $violations[] = new Violation(
+                $displayPath,
+                $index + 1,
+                'entity_query_access is not a Drupal query tag',
+            );
+        }
+    }
+
     $expectedNumber = 1;
     $inReferences = false;
 
